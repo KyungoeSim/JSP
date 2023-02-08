@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>기본 마커 생성</title>
+</head>
+<body>
+
+	<div id="map" style="width:700px;height:700px;"></div>
+
+	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1d944d4a9cb22483964d7e130a9b4c2a"></script>
+	
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(37.642348, 127.029921),
+			level: 3  // 지도의 크기를 설정 예) 10 이 서울 전체, 제주 전체
+		};
+
+		var map = new kakao.maps.Map(container, options);
+
+		
+		
+		//마커를 표시할 위치
+		
+		var markerPosition = new kakao.maps.LatLng(37.642348, 127.029921);
+		
+		//마커 생성
+		var marker = new kakao.maps.Marker({
+			position:markerPosition
+		});
+		
+		//마커 지도에 올리기
+		marker.setMap(map);
+		
+		
+		
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

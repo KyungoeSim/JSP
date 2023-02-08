@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인포윈도우 생성</title>
+</head>
+<body>
+
+	<div id="map" style="width:700px;height:700px;"></div>
+
+	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1d944d4a9cb22483964d7e130a9b4c2a"></script>
+	
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(37.642348, 127.029921),
+			level: 3  // 지도의 크기를 설정 예) 10 이 서울 전체, 제주 전체
+		};
+
+		var map = new kakao.maps.Map(container, options);
+		
+		//정보창에 나타낼 글자 작성
+		var iwContent = '<div style = "padding:5px;">Hello World<br>환영합니다.</div>'
+			iwPosition = new kakao.maps.LatLng(37.642348, 127.029921),
+			iwRemovable = true;
+		
+		//창생성
+		var infowindow = new kakao.maps.InfoWindow({
+			map: map,
+			position : iwPosition,
+			content : iwContent,
+			removable : iwRemovable
+		});
+
+		
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
