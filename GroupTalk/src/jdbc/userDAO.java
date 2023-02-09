@@ -34,6 +34,29 @@ public class userDAO {
 				if(conn != null) conn.close();
 			}
 		}
+		
+		//회원 가입 신청
+		public static int inserttemp(String id, String password, String name) throws NamingException, SQLException {
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				String sql = "INSERT INTO temp(id,password,name) VALUES(?,?,?)";
+				
+				conn = ConnectionPool.get();
+				pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, id);
+					pstmt.setString(2, password);
+					pstmt.setString(3, name);
+					
+				return pstmt.executeUpdate(); //성공 1, 실패 0 을 가지고 나간다. 
+				
+			}finally {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}
+		}
 	
 	//회원 가입
 	public static int insert(String id, String password, String name) throws NamingException, SQLException {
@@ -198,5 +221,117 @@ public class userDAO {
 			if(conn != null) conn.close();
 		}
 	}
+	
+	//임시테이블 목록 보기
+		public static String gettemp() throws NamingException, SQLException {
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				String sql = "SELECT * FROM temp ORDER BY ts DESC";
+				
+				conn = ConnectionPool.get();
+				pstmt = conn.prepareStatement(sql);
+				
+				rs = pstmt.executeQuery(); 
+					 
+				JSONArray users = new JSONArray();
+				
+				while(rs.next()) {
+					JSONObject obj = new JSONObject();
+					obj.put("id", rs.getString(1));
+					obj.put("password", rs.getString(2));
+					obj.put("name", rs.getString(3));
+					obj.put("ts", rs.getString(4));
+					
+					users.add(obj);
+				
+				}return users.toJSONString(); //users가 JSONArray로 받기 때문에 string로 바꿔주는것
+				
+			}finally {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}
+		}
+		
+		//관리자가 임시 테이블 자료를 유저테이블로 가입 승인 절차
+		public static int insertadmin(String id) throws NamingException, SQLException {
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				
+				
+				  //temp 에서 id 값으로 데이터 조회해오기 select 
+				 String sql = "SELECT * FROM temp WHERE id = ?";
+				  
+				  conn = ConnectionPool.get(); 
+				  pstmt = conn.prepareStatement(sql);
+				  	pstmt.setString(1, id);
+				  
+				  rs = pstmt.executeQuery();
+				  
+				  rs.next();
+				  
+				  String tid = rs.getString(1);
+				  String tpassword = rs.getString(2);
+				  String tname = rs.getString(3);
+				  
+				
+				
+				 //조회한 데이터 user 에 넣기  insert 
+				
+				 String sql2 = "INSERT INTO user(id,password,name) VALUES(?,?,?)";
+				  
+				 pstmt = conn.prepareStatement(sql2);
+				  		pstmt.setString(1, tid);
+				  		pstmt.setString(2, tpassword);
+				  		pstmt.setString(3, tname);
+				  		
+				  		pstmt.executeUpdate(); 
+					
+				//temp에서 해당 데이터 삭제하기 delete
+
+					String sql3 = "DELETE FROM temp WHERE id = ?";
+					
+					pstmt = conn.prepareStatement(sql3);
+						pstmt.setString(1, id);
+						
+
+				return pstmt.executeUpdate();  //성공 1, 실패 0 을 가지고 나간다. 
+				
+			}finally {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			}
+		}
+		
+		// 가입신청자 탈퇴
+		public static int tempdelete(String id) throws NamingException, SQLException {
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				String sql = "DELETE FROM temp WHERE id = ?";
+				
+				conn = ConnectionPool.get();
+				pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, id);
+					
+				return pstmt.executeUpdate(); //성공 1, 실패 0 을 가지고 나간다. 
+				
+			}finally {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}
+		}
 
 }

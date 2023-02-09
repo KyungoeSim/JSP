@@ -5,12 +5,12 @@
 <head>
 </head>
  <body class="text-center">
- <%@include file="header.jsp" %>
+ <%@include file="/header.jsp" %>
   <link href="../css/sign-in.css" rel="stylesheet">
  <div class="container bg-warning shadow mx-auto p-5 w-75">
 <main class="form-signin w-100 m-auto">
   <form action="signupCheck.jsp" method="post">
-    <img class="mb-4" src="3.jpg" alt="" width="72" height="57">
+    <img class="mb-4" src="/3.jpg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">회원가입</h1>
 
     <div class="form-floating">
@@ -29,6 +29,6 @@
   </form>
 </main>
 </div>
-<%@include file="footer.jsp" %>
+<%@include file="/footer.jsp" %>
 </body>
 </html>

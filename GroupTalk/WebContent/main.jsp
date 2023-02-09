@@ -23,12 +23,45 @@
 	 mx-auto m 바깥여백 x가로로 auto 화면 가운데 정렬
 	 p는 안쪽여백
 	 w는 전체 너비-->
+<%
+	sid = (String) session.getAttribute("id"); //header에 넣어놨으니까 String 선언 또 하지않기
+	if (sid == null){
+%>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h1 class="modal-title fs-5" id="exampleModalLabel">회원 전용 메뉴</h1>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        회원전용 메뉴입니다. 로그인 후 이용해주세요.
+	      </div>
+	      <div class="modal-footer">
+		        <button onclick="location.href='../user/login.jsp'" class="btn btn-primary">로그인</button>
 
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<script>
+		$(function() {
+			$("#exampleModal1").modal("show");
+		});
+	</script>	
+	
+<%	
+}else{
+	session.setAttribute("id", sid);
+}
+%>
 <script>
 	function addItem() {
 		$.ajax({
 			type:"post",
-			url: "feedadd.jsp",
+			url: "/feedadd.jsp",
 			data : {id:document.getElementById('id').value,
 					content:$("#summernote").summernote("code")
 			},
@@ -47,7 +80,7 @@
 	function delItem(no) {
 		$.ajax({
 			type:"post",
-			url: "feeddel.jsp",
+			url: "/feeddel.jsp",
 			data : {no:no
 			},
 			dataType:"text",
@@ -61,7 +94,7 @@
 	function searchFunction(){
 		$.ajax({
 			type:'post',
-			url: 'feedall.jsp', 
+			url: '/feedall.jsp', 
 			success: function(data){
 			var feeds = JSON.parse(data.trim()); //글자 분해해주는 기능
 			

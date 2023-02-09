@@ -35,14 +35,14 @@
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">회원메뉴</a>
             <ul class="dropdown-menu">
             <% if(sid==null){ %>
-              <li><a class="dropdown-item" href="/login.jsp">로그인</a></li>
-              <li><a class="dropdown-item" href="/signup.jsp">회원가입</a></li>
+              <li><a class="dropdown-item" href="../user/login.jsp">로그인</a></li>
+              <li><a class="dropdown-item" href="../user/signup.jsp">회원가입</a></li>
 
 
              <% }else{ %>
-              <li><a class="dropdown-item" href="/logout.jsp">로그아웃</a></li>
-              <li><a class="dropdown-item" href="/signedit.jsp">정보변경</a></li>
-              <li><a class="dropdown-item" href="/signout.jsp">회원탈퇴</a></li>
+              <li><a class="dropdown-item" href="../user/logout.jsp">로그아웃</a></li>
+              <li><a class="dropdown-item" href="../user/signedit.jsp">정보변경</a></li>
+              <li><a class="dropdown-item" href="../user/signout.jsp">회원탈퇴</a></li>
              <% };  %> 
             </ul>
           </li>
@@ -51,8 +51,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">관리메뉴</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../ajax/userAllAJAX.jsp">회원관리</a></li>
-              <li><a class="dropdown-item" href="../ajax/feedAllAJAX.jsp">게시물 관리</a></li>
+              <li><a class="dropdown-item" href="/temp.jsp">신청목록</a></li>
+              <li><a class="dropdown-item" href="../feed/feedall.jsp">피드 관리</a></li>
             </ul>
           </li>
            <% };  %> 
@@ -71,6 +71,6 @@
       </div>
     </div>
   </nav>
-  <link href="../etc/sign-in.css" rel="stylesheet">
+  <link href="../css/sign-in.css" rel="stylesheet">
 </body>
 </html>

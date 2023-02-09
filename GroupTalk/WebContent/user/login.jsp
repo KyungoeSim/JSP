@@ -12,7 +12,7 @@
 <div class="container bg-warning shadow mx-auto p-5 w-75">
 <main class="form-signin w-100 m-auto">
   <form action="loginCheck.jsp">
-    <img class="mb-4" src="3.jpg" alt="" width="72" height="57">
+    <img class="mb-4" src="/3.jpg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
     <div class="form-floating">

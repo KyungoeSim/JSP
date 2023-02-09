@@ -84,7 +84,7 @@
 		        방문을 환영합니다.
 		      </div>
 		      <div class="modal-footer">
-			        <button onclick="location.href='main.jsp'" class="btn btn-primary">메인으로</button>
+			        <button onclick="location.href='/main.jsp'" class="btn btn-primary">메인으로</button>
 
 		      </div>
 		    </div>

@@ -12,7 +12,7 @@
 <title>Group Talk</title>
 </head>
 <body>
- <%@include file="header.jsp" %>
+ <%@include file="/header.jsp" %>
 <div class="container bg-warning shadow mx-auto p-5 w-75">
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
@@ -132,7 +132,7 @@
      <%} %>     
     </script>
 
-    <%@include file="footer.jsp" %>
+    <%@include file="/footer.jsp" %>
     
 </body>
 </html>
