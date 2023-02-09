@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="main.jsp">메모 작성</a>
+          <a class="nav-link active" aria-current="page" href="main.jsp">피드 작성</a>
         </li>
       </ul>
     </div>

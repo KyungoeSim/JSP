@@ -25,10 +25,10 @@
             <a class="nav-link active" aria-current="page" href="/main.jsp">Group talk</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">메모메뉴</a>
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">피드메뉴</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/myfeed.jsp">내 피드보기</a></li>
-              <li><a class="dropdown-item" href="/main.jsp">피드보기</a></li>
+              <li><a class="dropdown-item" href="../feed/myfeed.jsp">내 피드보기</a></li>
+              <li><a class="dropdown-item" href="/main.jsp">전체 피드보기</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -61,7 +61,7 @@
       <div class="container d-flex flex-wrap justify-content-center">
       <div class="text-end">
       		<%if (sid==null) {%>
-      		<span class="text-info bg-dark"><small>로그인 하세요</small></span>
+      		<a href="../user/login.jsp"><span class="text-info bg-dark"><small>로그인 하세요</small></span></a>
       		<%} else {%>
       		<span class="text-warning bg-dark"><small><%=sid%> 님 로그인 하셨습니다.</small></span>
       		<%}; %>

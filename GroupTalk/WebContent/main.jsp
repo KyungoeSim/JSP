@@ -61,7 +61,7 @@
 	function addItem() {
 		$.ajax({
 			type:"post",
-			url: "/feedadd.jsp",
+			url: "../feed/feedadd.jsp",
 			data : {id:document.getElementById('id').value,
 					content:$("#summernote").summernote("code")
 			},
@@ -80,7 +80,7 @@
 	function delItem(no) {
 		$.ajax({
 			type:"post",
-			url: "/feeddel.jsp",
+			url: "../feed/feeddel.jsp",
 			data : {no:no
 			},
 			dataType:"text",
@@ -94,7 +94,7 @@
 	function searchFunction(){
 		$.ajax({
 			type:'post',
-			url: '/feedall.jsp', 
+			url: '../feed/feedall.jsp', 
 			success: function(data){
 			var feeds = JSON.parse(data.trim()); //글자 분해해주는 기능
 			

@@ -38,7 +38,7 @@ if(userDAO.exist(id)) {
 	        다른 아이디 사용하세요
 	      </div>
 	      <div class="modal-footer">
-		        <button onclick="location.href='signup.jsp'" class="btn btn-primary">다른 아이디</button>
+		        <button onclick="location.href='signup.jsp'" class="btn btn-primary">회원가입 다시하기</button>
 
 	      </div>
 	    </div>
@@ -73,7 +73,7 @@ if(userDAO.exist(id)) {
 		        회원 가입 신청을 완료하였습니다.<br>관리자 확인 후 승인/거부 처리됩니다.
 		      </div>
 		      <div class="modal-footer">
-		        <button onclick="location.href='main.jsp'" class="btn btn-primary">메인 이동</button>
+		        <button onclick="location.href='/main.jsp'" class="btn btn-primary">메인 이동</button>
 
 		      </div>
 		    </div>
